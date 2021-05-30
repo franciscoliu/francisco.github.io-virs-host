@@ -16,28 +16,23 @@ a {
     text-decoration: none;
 }
 
-body div.background {
-    background: url(demo.png) no-repeat center;
-    height: 500px;
+#cy {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 200;
 }
 
-body div.circle {
-    height: 50px;
-    margin-top: -390px;
-    margin-right: 475px;
-    shape-outside: circle();
-    clip-path: circle();
-    background: lightblue;
-}
-
-body div.circle-hide {
+body div.pop {
     display: none;
+    width: 50px;
     height: 80px;
-    width: 60px;
     background-color: #cccc;
 }
 
-.circle:hover+.circle-hide {
+
+/* #cy:hover+.pop {
     display: block;
     position: absolute;
     left: 37%;
@@ -46,4 +41,4 @@ body div.circle-hide {
     padding: 5px;
     z-index: 100;
     text-align: center;
-}
+} */
