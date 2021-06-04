@@ -47,7 +47,7 @@ body div#info {
 
 /* Rotate the arrow to expand the info box */
 
-#right {
+img#right {
     width: 25px;
     height: 25px;
     position: absolute;
