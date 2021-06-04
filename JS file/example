@@ -9,7 +9,7 @@ $(function() {
                     'background-color': '#61bffc',
                     "text-valign": "center",
                     "color": "white",
-                    content: 'data(id)'
+                    content: 'data(id)',
                 }
             },
             {
@@ -216,5 +216,51 @@ $(function() {
                 event: "mouseout unfocus"
             }
         }, event);
+    });
+
+    cy.on('click', 'node', function(evt) {
+        // console.log('clicked ' + this.id());
+        var div = document.createElement('div');
+        var button = document.createElement('BUTTON');
+        var text = document.createTextNode("Delete");
+        button.appendChild(text);
+        button.style.position = 'absolute';
+        button.style.left = 0;
+        button.style.margin = "5px";
+        button.style.padding = "3px";
+        div.style.height = "150px";
+        div.style.borderStyle = "solid";
+        div.style.borderColor = "grey";
+        div.style.overflowY = "scroll";
+        $(div).addClass("inner").html("Node: " + evt.target.id());
+        $('#info').append(div);
+        $(div).append(button);
+
+        $(document).on('click', ':button', function() {
+            $(this).parent().remove();
+        });
+    });
+
+    cy.on('click', 'edge', function(evt) {
+        // console.log('clicked ' + this.id());
+        var div = document.createElement('div');
+        var button = document.createElement('BUTTON');
+        var text = document.createTextNode("Delete");
+        button.appendChild(text);
+        button.style.position = 'absolute';
+        button.style.left = 0;
+        button.style.margin = "5px";
+        button.style.padding = "3px";
+        div.style.height = "150px";
+        div.style.borderStyle = "solid";
+        div.style.borderColor = "grey";
+        div.style.overflowY = "scroll";
+        $(div).addClass("inner").html("Edge: " + evt.target.id());
+        $('#info').append(div);
+        $(div).append(button);
+
+        $(document).on('click', ':button', function() {
+            $(this).parent().remove();
+        });
     });
 });
