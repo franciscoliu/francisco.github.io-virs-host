@@ -21,59 +21,100 @@ $(function() {
                 }
             }
         ],
-        elements: {
-            nodes: [
-                { data: { id: 'Spike' } },
-                { data: { id: 'spike' } },
-                { data: { id: 'ACE2' } },
-                { data: { id: 'ACe2' } },
-                { data: { id: 'Ace2' } },
-                { data: { id: 'IRF3' } },
-                { data: { id: 'IRf3' } },
-                { data: { id: 'Irf3' } },
-                { data: { id: 'B.taurus' } },
-                { data: { id: 'G.gallus' } },
-                { data: { id: 'H.sapien' } },
-                { data: { id: 'SARS-CoV-2' } },
-                { data: { id: 'SARS-CoV' } },
-                { data: { id: 'PLPro' } },
-                { data: { id: 'PLpro' } }
+        // elements: {
+        // nodes: [
+        //     { data: { id: 'Spike' } },
+        //     { data: { id: 'spike' } },
+        //     { data: { id: 'ACE2' } },
+        //     { data: { id: 'ACe2' } },
+        //     { data: { id: 'Ace2' } },
+        //     { data: { id: 'IRF3' } },
+        //     { data: { id: 'IRf3' } },
+        //     { data: { id: 'Irf3' } },
+        //     { data: { id: 'B.taurus' } },
+        //     { data: { id: 'G.gallus' } },
+        //     { data: { id: 'H.sapien' } },
+        //     { data: { id: 'SARS-CoV-2' } },
+        //     { data: { id: 'SARS-CoV' } },
+        //     { data: { id: 'PLPro' } },
+        //     { data: { id: 'PLpro' } }
 
-            ],
-            edges: [
-                { data: { id: 'e1', source: 'Spike', target: 'spike' } },
-                { data: { id: 'e2', source: 'Spike', target: 'SARS-CoV' } },
-                { data: { id: 'e3', source: 'PLPro', target: 'SARS-CoV-2' } },
-                { data: { id: 'e4', source: 'spike', target: 'SARS-CoV-2' } },
-                { data: { id: 'e5', source: 'spike', target: 'ACE2' } },
-                { data: { id: 'e6', source: 'ACE2', target: 'H.sapien' } },
-                { data: { id: 'e7', source: 'ACE2', target: 'ACe2' } },
-                { data: { id: 'e8', source: 'ACE2', target: 'Ace2' } },
-                { data: { id: 'e9', source: 'ACe2', target: 'Ace2' } },
-                { data: { id: 'e10', source: 'ACe2', target: 'G.gallus' } },
-                { data: { id: 'e11', source: 'Ace2', target: 'B.taurus' } },
-                { data: { id: 'e12', source: 'IRF3', target: 'H.sapien' } },
-                { data: { id: 'e13', source: 'IRf3', target: 'G.gallus' } },
-                { data: { id: 'e14', source: 'Irf3', target: 'B.taurus' } },
-                { data: { id: 'e15', source: 'IRF3', target: 'IRf3' } },
-                { data: { id: 'e16', source: 'IRF3', target: 'Irf3' } },
-                { data: { id: 'e17', source: 'IRf3', target: 'Irf3' } },
-                { data: { id: 'e18', source: 'SARS-CoV-2', target: 'H.sapien' } },
-                { data: { id: 'e19', source: 'PLpro', target: 'SARS-CoV' } },
-                { data: { id: 'e20', source: 'PLpro', target: 'PLPro' } },
-                { data: { id: 'e21', source: 'PLpro', target: 'IRF3' } },
-                { data: { id: 'e22', source: 'Spike', target: 'ACE2' } },
-                { data: { id: 'e23', source: 'SARS-CoV', target: 'H.sapien' } }
-            ]
-        },
+        // ],
+        // edges: [
+        //     { data: { id: 'e1', source: 'Spike', target: 'spike' } },
+        //     { data: { id: 'e2', source: 'Spike', target: 'SARS-CoV' } },
+        //     { data: { id: 'e3', source: 'PLPro', target: 'SARS-CoV-2' } },
+        //     { data: { id: 'e4', source: 'spike', target: 'SARS-CoV-2' } },
+        //     { data: { id: 'e5', source: 'spike', target: 'ACE2' } },
+        //     { data: { id: 'e6', source: 'ACE2', target: 'H.sapien' } },
+        //     { data: { id: 'e7', source: 'ACE2', target: 'ACe2' } },
+        //     { data: { id: 'e8', source: 'ACE2', target: 'Ace2' } },
+        //     { data: { id: 'e9', source: 'ACe2', target: 'Ace2' } },
+        //     { data: { id: 'e10', source: 'ACe2', target: 'G.gallus' } },
+        //     { data: { id: 'e11', source: 'Ace2', target: 'B.taurus' } },
+        //     { data: { id: 'e12', source: 'IRF3', target: 'H.sapien' } },
+        //     { data: { id: 'e13', source: 'IRf3', target: 'G.gallus' } },
+        //     { data: { id: 'e14', source: 'Irf3', target: 'B.taurus' } },
+        //     { data: { id: 'e15', source: 'IRF3', target: 'IRf3' } },
+        //     { data: { id: 'e16', source: 'IRF3', target: 'Irf3' } },
+        //     { data: { id: 'e17', source: 'IRf3', target: 'Irf3' } },
+        //     { data: { id: 'e18', source: 'SARS-CoV-2', target: 'H.sapien' } },
+        //     { data: { id: 'e19', source: 'PLpro', target: 'SARS-CoV' } },
+        //     { data: { id: 'e20', source: 'PLpro', target: 'PLPro' } },
+        //     { data: { id: 'e21', source: 'PLpro', target: 'IRF3' } },
+        //     { data: { id: 'e22', source: 'Spike', target: 'ACE2' } },
+        //     { data: { id: 'e23', source: 'SARS-CoV', target: 'H.sapien' } }
+        // ]
+        // },
         layout: {
             name: 'breadthfirst',
             directed: true,
             padding: 10,
             /* color: "#ffff00",*/
             fit: true
-        }
+        },
+
     });
+    var eles = cy.add([
+        { group: 'nodes', data: { id: 'Spike' }, position: { x: 350, y: 100 } },
+        { group: 'nodes', data: { id: 'spike' }, position: { x: 450, y: 100 } },
+        { group: 'nodes', data: { id: 'ACE2' }, position: { x: 700, y: 100 } },
+        { group: 'nodes', data: { id: 'ACe2' }, position: { x: 800, y: 70 } },
+        { group: 'nodes', data: { id: 'Ace2' }, position: { x: 850, y: 140 } },
+        { group: 'nodes', data: { id: 'IRF3' }, position: { x: 1000, y: 200 } },
+        { group: 'nodes', data: { id: 'IRf3' }, position: { x: 1100, y: 200 } },
+        { group: 'nodes', data: { id: 'Irf3' }, position: { x: 1180, y: 270 } },
+        { group: 'nodes', data: { id: 'B.taurus' }, position: { x: 1050, y: 500 } },
+        { group: 'nodes', data: { id: 'G.gallus' }, position: { x: 870, y: 500 } },
+        { group: 'nodes', data: { id: 'H.sapien' }, position: { x: 760, y: 500 } },
+        { group: 'nodes', data: { id: 'SARS-CoV-2' }, position: { x: 370, y: 500 } },
+        { group: 'nodes', data: { id: 'SARS-CoV' }, position: { x: 230, y: 500 } },
+        { group: 'nodes', data: { id: 'PLPro' }, position: { x: 180, y: 140 } },
+        { group: 'nodes', data: { id: 'PLpro' }, position: { x: 100, y: 200 } },
+        { group: 'edges', data: { id: 'e1', source: 'Spike', target: 'spike' } },
+        { group: 'edges', data: { id: 'e2', source: 'Spike', target: 'SARS-CoV' } },
+        { group: 'edges', data: { id: 'e3', source: 'PLPro', target: 'SARS-CoV-2' } },
+        { group: 'edges', data: { id: 'e4', source: 'spike', target: 'SARS-CoV-2' } },
+        { group: 'edges', data: { id: 'e5', source: 'spike', target: 'ACE2' } },
+        { group: 'edges', data: { id: 'e6', source: 'ACE2', target: 'H.sapien' } },
+        { group: 'edges', data: { id: 'e7', source: 'ACE2', target: 'ACe2' } },
+        { group: 'edges', data: { id: 'e8', source: 'ACE2', target: 'Ace2' } },
+        { group: 'edges', data: { id: 'e9', source: 'ACe2', target: 'Ace2' } },
+        { group: 'edges', data: { id: 'e10', source: 'ACe2', target: 'G.gallus' } },
+        { group: 'edges', data: { id: 'e11', source: 'Ace2', target: 'B.taurus' } },
+        { group: 'edges', data: { id: 'e12', source: 'IRF3', target: 'H.sapien' } },
+        { group: 'edges', data: { id: 'e13', source: 'IRf3', target: 'G.gallus' } },
+        { group: 'edges', data: { id: 'e14', source: 'Irf3', target: 'B.taurus' } },
+        { group: 'edges', data: { id: 'e15', source: 'IRF3', target: 'IRf3' } },
+        { group: 'edges', data: { id: 'e16', source: 'IRF3', target: 'Irf3' } },
+        { group: 'edges', data: { id: 'e17', source: 'IRf3', target: 'Irf3' } },
+        { group: 'edges', data: { id: 'e18', source: 'SARS-CoV-2', target: 'H.sapien' } },
+        { group: 'edges', data: { id: 'e19', source: 'PLpro', target: 'SARS-CoV' } },
+        { group: 'edges', data: { id: 'e20', source: 'PLpro', target: 'PLPro' } },
+        { group: 'edges', data: { id: 'e21', source: 'PLpro', target: 'IRF3' } },
+        { group: 'edges', data: { id: 'e22', source: 'Spike', target: 'ACE2' } },
+        { group: 'edges', data: { id: 'e23', source: 'SARS-CoV', target: 'H.sapien' } }
+    ]);
 
 
     //Change some edges to curvature
@@ -235,7 +276,12 @@ $(function() {
         $(div).addClass("inner").html("Node: " + evt.target.id());
         $('#info').append(div);
         $(div).append(button);
-
+        var divs = document.getElementsByTagName('div');
+        for (let i = 0; i < divs.length; i++) {
+            if (divs[i].innerHTML.indexOf(evt.target) == -1) {
+                console.log('hello');
+            }
+        }
         $(document).on('click', ':button', function() {
             $(this).parent().remove();
         });
@@ -255,10 +301,10 @@ $(function() {
         div.style.borderStyle = "solid";
         div.style.borderColor = "grey";
         div.style.overflowY = "scroll";
+
         $(div).addClass("inner").html("Edge: " + evt.target.id());
         $('#info').append(div);
         $(div).append(button);
-
         $(document).on('click', ':button', function() {
             $(this).parent().remove();
         });
