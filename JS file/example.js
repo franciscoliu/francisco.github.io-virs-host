@@ -139,6 +139,8 @@ $(function() {
     cy.nodes('[id = "PLPro"]').style('width', '60', 'height', 'data(height)');
 
 
+
+
     // Change the color of each edge.
     var similar = []; // An array to hold edge ID that are similar.
     for (let i = 0; i < cy.elements('edge').length; i++) {
@@ -303,10 +305,123 @@ $(function() {
         div.style.overflowY = "scroll";
 
         $(div).addClass("inner").html("Edge: " + evt.target.id());
+        // $(div).addClass("inner").html("Edge: " + evt.target.id().edge.sourceEndpoint());
         $('#info').append(div);
         $(div).append(button);
         $(document).on('click', ':button', function() {
             $(this).parent().remove();
         });
     });
+
+
+    //Add a property to each edge elements that stands for the status of the edge.
+    // If it is the same as what user selected, it would become true, if it is only partially satisfied, it would be buffer.
+    //Ohterwise it would be false, the default value would be false.
+
+    for (var i = 0; i < cy.elements('edge').length; i++) {
+        cy.elements('edge')[i].data().flag = 'false';
+    }
+
+
+    //function sift(), it would check the select options from user and react about it.
+    //If the source and target nodes chosen by the user appeared on the canvas, other nodes and edges would be faded.
+
+    function sift() {
+        var correct_tar;
+        var correct_sour;
+        var count = 0;
+        var first_blank = $("#node :selected");
+        var second_blank = $("#second_node :selected");
+
+        // console.log(first_blank);
+        if (first_blank.val() != "default" && second_blank.val() != "default") {
+            for (var i = 0; i < cy.elements('edge').length; i++) {
+                if (first_blank.text() == cy.elements('edge')[i].data().source && second_blank.text() == cy.elements('edge')[i].data().target) {
+                    count++;
+                    cy.elements('edge')[i].data().flag = 'true';
+                } else if (first_blank.text() == cy.elements('edge')[i].data().source && second_blank.text() != cy.elements('edge')[i].data().target) {
+                    cy.elements('edge')[i].data().flag = 'buffer';
+                } else if (first_blank.text() != cy.elements('edge')[i].data().source && second_blank.text() == cy.elements('edge')[i].data().target) {
+                    cy.elements('edge')[i].data().flag = 'buffer';
+                }
+                // console.log(cy.elements('edge')[i].data().flag);
+            }
+            if (count == 1) {
+                console.log("True");
+            } else {
+                console.log("False");
+            }
+        } else {
+            console.log("Please choose");
+        }
+
+        if (count == 1) {
+            for (var j = 0; j < cy.elements('edge').length; j++) {
+                if (cy.elements('edge')[j].data().flag == 'false' || cy.elements('edge')[j].data().flag == 'buffer') {
+                    var edge_id = cy.elements('edge')[j].data().id;
+                    if (cy.elements('edge')[j].id() == edge_id) {
+                        cy.elements('edge')[j].style('opacity', "0.3");
+                    }
+                } else {
+                    cy.elements('edge')[j].style('opacity', "1");
+                    correct_sour = cy.elements('edge')[j].data().source;
+                    correct_tar = cy.elements('edge')[j].data().target;
+                }
+            }
+
+            for (var k = 0; k < cy.elements('node').length; k++) {
+                if (cy.elements('node')[k].data().id != correct_sour && cy.elements('node')[k].data().id != correct_tar) {
+                    cy.elements('node')[k].style('opacity', "0.3");
+                } else {
+                    cy.elements('node')[k].style('opacity', '1');
+                }
+            }
+        } else {
+            cy.elements().style('opacity', "1");
+        }
+    }
+
+    //An settimeout function to react to the change made by the user.
+    //The function will be triggered after 2s the user made the changes.
+
+    $(document).on('change', '#node', function() {
+        window.setTimeout(() => {
+            sift();
+        }, 500);
+        $(document).on('change', '#second_node', function() {
+            window.setTimeout(() => {
+                sift();
+            }, 500);
+        })
+    })
+
+
+
+    // document.getElementById('submit').onclick = function() {
+    //     sift();
+    // }
+    // var firstblank = document.getElementById("node");
+    // var secondblank = document.getElementById("second_node");
+    // var firstflag = false;
+    // var secondflag = false;
+
+    // firstblank.addEventListener('change', function() {
+    //     // alert('change');
+    //     firstflag = true;
+    // });
+
+    // secondblank.addEventListener('change', function() {
+    //     // alert('change');
+    //     secondflag = true;
+    // });
+
+    // if ($("#node :selected") == true && $("#second_node :selected") == true) {
+    //     window.setInterval(function() {
+    //         sift();
+    //     }, 2000);
+    // } else {
+    //     clearInterval();
+    // }
+
+
 });

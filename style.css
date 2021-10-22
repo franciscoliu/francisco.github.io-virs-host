@@ -47,7 +47,7 @@ body div#info {
 
 /* Rotate the arrow to expand the info box */
 
-img#right {
+#right {
     width: 25px;
     height: 25px;
     position: absolute;
@@ -84,6 +84,22 @@ img#right {
     -moz-transition: -moz-transform 0.2s;
     -o-transition: -o-transform 0.2s;
     -ms-transition: -ms-transform 0.2s;
+}
+
+body .selector {
+    height: 150px;
+    border: solid;
+    border-color: gray;
+}
+
+body .selector #node {
+    position: absolute;
+    margin: 5% 5%;
+}
+
+body .selector #second_node {
+    position: absolute;
+    margin: 5% 55%;
 }
 
 
