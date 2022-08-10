@@ -1,6 +1,6 @@
 # What is this website?
 
-This is a simplified [website](https://franciscoliu.github.io/francisco.github.io-virus-host/) of the [paper](https://www.cell.com/patterns/fulltext/S2666-3899(21)00062-3?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2666389921000623%3Fshowall%3Dtrue).
+This is a simplified [website](https://franciscoliu.github.io/francisco.github.io-virus-host/) of this [paper](https://www.cell.com/patterns/fulltext/S2666-3899(21)00062-3?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS2666389921000623%3Fshowall%3Dtrue).
 
 # What does the website show?
 
